@@ -33,12 +33,17 @@ Google Colab
 
 ## Expected Outcomes:
 We will determine the efficacy of the Google Coral TPU Dev Board Micro at classifying images using varying ML models.
+
 We will optimize the performance of the Google Coral TPU Dev Board Micro.
+
 We will compare the performance of the Google Coral board with the performance of Google Colab to determine if having access to physical hardware has advantages over cloud based machine leanring. 
 
 ## Timeline:
 Week 1 - Configure board
+
 Week 2 - Perform image classification
+
 Week 3 - Compare results from both platforms
+
 Week 4 - Finish report and verify results
 
