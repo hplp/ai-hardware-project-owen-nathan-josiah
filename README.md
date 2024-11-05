@@ -18,9 +18,12 @@ Our project will assess whether physical hardware access gives advantages machin
 We will accomplish this by performing image classification on the Google Coral TPU Dev Board Micro with varying ML models. Then we will perform image analysis using Google Colab CPU and TPU with those same ML models. Finally we will compare results between the two platforms and draw a conclusion on the advantages of physical hardware for machine learning.
 
 ## Key Objectives:
-Perform image classification on Google Coral Dev Board Micro 
+Perform image classification on Google Coral Dev Board Micro
+
 Gather performance statistics using various ML models on the Coral Micro
+
 Perform image classification on Google Colab with CPU and TPU
+
 Compare results between platforms
 
 
