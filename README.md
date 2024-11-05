@@ -29,9 +29,13 @@ Compare results between platforms
 
 ## Technology Stack:
 Google Coral TPU Dev Board Micro 
+
 C++/C Programming Languages
+
 FreeRTOS
+
 VirtualBox (Ubuntu machine necessary)
+
 Google Colab
 
 ## Expected Outcomes:
