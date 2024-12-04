@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include <vector>
+#include <chrono>
 
 #include "libs/base/filesystem.h"
 #include "libs/base/led.h"
@@ -38,7 +39,7 @@
 namespace coralmicro {
 namespace {
 constexpr char kModelPath[] =
-    "/models/mobilenet_v1_1.0_224_quant_edgetpu.tflite";
+    "/models/inception_v2_224_quant_edgetpu.tflite";
 constexpr char kImagePath[] = "/examples/classify_images_file/cat_224x224.rgb";
 constexpr int kTensorArenaSize = 1024 * 1024;
 STATIC_TENSOR_ARENA_IN_SDRAM(tensor_arena, kTensorArenaSize);
@@ -53,7 +54,7 @@ void Main() {
     printf("ERROR: Failed to load %s\r\n", kModelPath);
     return;
   }
-
+  
   // [start-sphinx-snippet:edgetpu]
   auto tpu_context = EdgeTpuManager::GetSingleton()->OpenDevice();
   if (!tpu_context) {
@@ -86,14 +87,22 @@ void Main() {
     return;
   }
 
+  auto start = xTaskGetTickCount();
   if (interpreter.Invoke() != kTfLiteOk) {
     printf("ERROR: Invoke() failed\r\n");
     return;
   }
+  auto end = xTaskGetTickCount();
+  auto duration = end - start;
 
   auto results = tensorflow::GetClassificationResults(&interpreter, 0.0f, 3);
-  for (auto& result : results)
-    printf("Label ID: %d Score: %f\r\n", result.id, result.score);
+
+  while(true) {
+    for (auto& result : results) {
+      printf("Label ID: %d Score: %f\r\n", result.id, result.score);
+    }
+    printf("Time taken: %ld ticks\r\n", duration);
+  }
 }
 }  // namespace
 }  // namespace coralmicro
