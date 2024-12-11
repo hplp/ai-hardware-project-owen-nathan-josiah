@@ -77,7 +77,7 @@ For the Google Coral TPU, the MobileNetV1 model performed image classification i
 
 
 |            | Coral Micro TPU | Colab Cloud TPU | Notes 
----------------------------------------------------------------------------------------------------------------------
+|------------|-----------------|-----------------|--------------------------------------------------------------------|
 |MobileNetV1 |      62 ms      |       N/A       | MobileNetV1 not working on Colab
 |MobileNetV2 |      61 ms      |       35 ms     |
 |InceptionV4 |      155 ms     |       36 ms     | InceptionV4 not compatible with Coral; InceptionV2 used instead
