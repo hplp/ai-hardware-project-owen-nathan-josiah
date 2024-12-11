@@ -76,10 +76,11 @@ During this project, we ran into a lot of miscellaneous issues that slowed us do
 For the Google Coral TPU, the MobileNetV1 model performed image classification in 62 milliseconds, the MobileNetV2 model finished in 61 milliseconds, and the InceptionV2 model finished in 155 milliseconds. Surprisingly, the MobileNet models were much faster than the Inception V2 model. This is likely because the program was specifically designed for this model. We had to use InceptionV2 on the coral micro because V4 is not supported for the micro board. As for the Google Colab TPU, the MobileNetV1 was not available from the available libraries as we suspect it might be too old of a model to keep, but we still managed to get results for the MobileNetV2 and InceptionV4, with their image classification time being 35 milliseconds and 36 milliseconds respectively.
 
 
-              Coral Micro TPU    Colab Cloud TPU                Notes
-MobileNetV1        62 ms              N/A           MobileNetV1 not working on Colab
-MobileNetV2        61 ms              35 ms
-InceptionV4        155 ms             36 ms         InceptionV4 not compatible with Coral; InceptionV2 used instead
+|            | Coral Micro TPU | Colab Cloud TPU | Notes 
+---------------------------------------------------------------------------------------------------------------------
+|MobileNetV1 |      62 ms      |       N/A       | MobileNetV1 not working on Colab
+|MobileNetV2 |      61 ms      |       35 ms     |
+|InceptionV4 |      155 ms     |       36 ms     | InceptionV4 not compatible with Coral; InceptionV2 used instead
 
 
 Based on the data we’ve acquired, we’ve determined that the project was a success, the time threshold was within expectation as the Google Coral TPU will always be slower than the Colab TPU as it is hardware compared to software. From this comparison, we learned that the Google Coral Micro Dev Board is capable of numerous things that we are yet to try, despite it having a harder learning curve when compared to Google Colab, we think that the payoff from the projects done with the Dev Board will be much more rewarding.
